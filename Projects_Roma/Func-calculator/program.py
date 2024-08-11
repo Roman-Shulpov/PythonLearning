@@ -18,9 +18,6 @@
 ########################################################################################################################
 # МЕТОДЫ КАЛЬКУЛЯТОРА
 ########################################################################################################################
-########################################################################################################################
-# МЕТОДЫ КАЛЬКУЛЯТОРА
-########################################################################################################################
 def add_numbers(a, b):
     return a + b
 
@@ -39,6 +36,8 @@ def divide_numbers(a, b):
 
 
 def raise_number_to_power(num, power):
+    num = int(input("Введите число которое вы будете возводить в степень: "))
+    power = int(input("Введите степень: "))
     return num ** power
 
 
@@ -65,10 +64,12 @@ def validate_input_number(input_string):
 
 def validate_divider(b):
     if b == 0:
-        print("Деление на ноль невозможно!")
         return False
     else:
-        return True
+        divide_numbers()
+
+def validate_letters(a, b):
+    pass
 
 
 ########################################################################################################################
@@ -84,20 +85,8 @@ def main():
         a = 0
         b = 0
         if choice_number in (1, 2, 3, 4):
-            while True:
-                a_input = input('Введите первое число: ')
-                if validate_input_number(a_input):
-                    a = int(a_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
-            while True:
-                b_input = input('Введите второе число: ')
-                if validate_input_number(b_input):
-                    b = int(b_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
+            a = int(input('Введите первое число: '))
+            b = int(input('Введите второе число: '))
         # -------------------------------------
         result = None
         if choice_number == 1:
@@ -116,28 +105,14 @@ def main():
             result = raise_number_to_power(a, b)
             result_output(result)
         elif choice_number == 6:
-            while True:
-                x_input = input("Введите значение x: ")
-                if validate_input_number(x_input):
-                    x = int(x_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
-            while True:
-                y_input = input("Введите значение y: ")
-                if validate_input_number(y_input):
-                    y = int(y_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
-            while True:
-                z_input = input("Введите значение z: ")
-                if validate_input_number(z_input):
-                    z = int(z_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
-            calculate_parallelepiped_area(x, y, z)
+            x = input("Введите значение x: ")
+            y = input("Введите значение y: ")
+            z = input("Введите значение z: ")
+            if validate_input_number(x) and validate_input_number(y) and validate_input_number(z):
+                return calculate_parallelepiped_area(int(x), int(y), int(z))
+                result_output(result)
+            else:
+                print("Ошибка ввода!")
         # -------------------------------------
         elif choice_number == 0:
             print("Вы вышли из программы!")
