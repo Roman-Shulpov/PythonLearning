@@ -1,14 +1,14 @@
-# еализовать метолды калькулятора
+# Реализовать метолды калькулятора
 # 1 - сложение двух чисел
 # 2 - вычитание двух чисел
 # 3 - умножение двух чисел
-# 4 - деление числла на число
+# 4 - деление числа на число
 # 5 - возведение числа в степень
-# 6 - вычяисление площади параллелепипеда по 3-м сторонам
+# 6 - вычисление площади параллелепипеда по 3-м сторонам
 #
 # обеспечить контроль ввода (функция валидации ввода числа)
 #
-# программа должа быть зацикленна
+# программа должна быть зацикленна
 # программа должна иметь консольный интерфейс с выбором действий
 # в программе должен быть способ выйти и закончить выполнение программыхх
 #
@@ -33,8 +33,7 @@ def multiply_numbers(a, b):
 
 
 def divide_numbers(a, b):
-    if validate_divider(b):
-        return a / b
+    return a / b
 
 
 def raise_number_to_power(num, power):
@@ -42,8 +41,7 @@ def raise_number_to_power(num, power):
 
 
 def calculate_parallelepiped_area(x, y, z):
-    result = x * y * z
-    print(f'Объём равен - {result}')
+    return x * y * z
 
 
 def result_output(result):
@@ -71,72 +69,53 @@ def validate_divider(b):
 
 
 ########################################################################################################################
+# ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ
+########################################################################################################################
+
+def input_number(message):
+    while True:
+        input_num = input(message)
+        if validate_input_number(input_num):
+            return int(input_num)
+        else:
+            print("Ошибка ввода! Введите число.")
+
+
+########################################################################################################################
 # ОСНОВНОЙ МЕТОД С ЦИКЛОМ И ВЫХОДОМ (ЗДЕСЬ ИНТЕРФЕЙС ВЫБОРА ДЕЙСТВИЙ С ПОМОЩЬЮ ВВОДА ЧИСЕЛ)
 ########################################################################################################################
 
-
 def main():
     while True:
-        choice_number = int(input("Выберите действие: 1 - сложить, 2 - вычесть, 3 - умножить, 4 - разделить"
-                                  "5 - возвезти в степень, 6 - вычислить площадь параллелепипеда. 0 - выйти."))
+        choice_number = int(input("Выберите действие:\n\t1 - сложить\n\t2 - вычесть\n\t3 - умножить\n\t4 - разделить"
+                                  "\n\t5 - возвезти в степень\n\t6 - вычислить площадь "
+                                  "параллелепипеда\n--------------------------\n\t0 - выйти."
+                                  "\nввод:\t"))
 
-        a = 0
-        b = 0
+        num1 = 0
+        num2 = 0
         if choice_number in (1, 2, 3, 4):
-            while True:
-                a_input = input('Введите первое число: ')
-                if validate_input_number(a_input):
-                    a = int(a_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
-            while True:
-                b_input = input('Введите второе число: ')
-                if validate_input_number(b_input):
-                    b = int(b_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
+            num1 = input_number("Введите первое число: ")
+            num2 = input_number("Введите второе число: ")
         # -------------------------------------
         result = None
         if choice_number == 1:
-            result = add_numbers(a, b)
-            result_output(result)
+            result = add_numbers(num1, num2)
         elif choice_number == 2:
-            result = subtract_numbers(a, b)
-            result_output(result)
+            result = subtract_numbers(num1, num2)
         elif choice_number == 3:
-            result = multiply_numbers(a, b)
-            result_output(result)
+            result = multiply_numbers(num1, num2)
         elif choice_number == 4:
-            result = divide_numbers(a, b)
-            result_output(result)
+            if validate_divider(num2):
+                result = divide_numbers(num1, num2)
         elif choice_number == 5:
-            result = raise_number_to_power(a, b)
-            result_output(result)
+            result = raise_number_to_power(num1, num2)
         elif choice_number == 6:
-            while True:
-                x_input = input("Введите значение x: ")
-                if validate_input_number(x_input):
-                    x = int(x_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
-            while True:
-                y_input = input("Введите значение y: ")
-                if validate_input_number(y_input):
-                    y = int(y_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
-            while True:
-                z_input = input("Введите значение z: ")
-                if validate_input_number(z_input):
-                    z = int(z_input)
-                    break
-                else:
-                    print("Ошибка ввода! Введите число.")
-            calculate_parallelepiped_area(x, y, z)
+            x = input_number("Введите значение x: ")
+            y = input_number("Введите значение y: ")
+            z = input_number("Введите значение z: ")
+
+            result = calculate_parallelepiped_area(x, y, z)
         # -------------------------------------
         elif choice_number == 0:
             print("Вы вышли из программы!")
@@ -144,6 +123,9 @@ def main():
         # -------------------------------------
         else:
             print("Такого действия не реализовано!!")
+
+        if result is not None:
+            result_output(result)
 
 
 ########################################################################################################################
