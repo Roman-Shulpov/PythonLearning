@@ -6,3 +6,5 @@ for i in range(1, number + 1):
         number_list.append(i)
 
 print(f'\nСписок из нечётных чисел от одного до {number}:', number_list)
+
+# TODO добавить слова в словарь, чтобы пропали подчеркивания

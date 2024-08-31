@@ -45,7 +45,7 @@ def calculate_parallelepiped_area(x, y, z):
 
 
 def result_output(result):
-    print(result)
+    print(f"Ответ:\t{result}")
 
 
 ########################################################################################################################
@@ -87,14 +87,19 @@ def input_number(message):
 
 def main():
     while True:
-        choice_number = int(input("Выберите действие:\n\t1 - сложить\n\t2 - вычесть\n\t3 - умножить\n\t4 - разделить"
-                                  "\n\t5 - возвезти в степень\n\t6 - вычислить площадь "
-                                  "параллелепипеда\n--------------------------\n\t0 - выйти."
-                                  "\nввод:\t"))
+        choice_number = None
+        try:
+            choice_number = int(
+                input("\nВыберите действие:\n\t1 - сложить\n\t2 - вычесть\n\t3 - умножить\n\t4 - разделить"
+                      "\n\t5 - возвезти в степень\n\t6 - вычислить площадь "
+                      "параллелепипеда\n--------------------------\n\t0 - выйти."
+                      "\nввод:\t"))
+        except ValueError:
+            pass
 
         num1 = 0
         num2 = 0
-        if choice_number in (1, 2, 3, 4):
+        if choice_number in (1, 2, 3, 4, 5):
             num1 = input_number("Введите первое число: ")
             num2 = input_number("Введите второе число: ")
         # -------------------------------------

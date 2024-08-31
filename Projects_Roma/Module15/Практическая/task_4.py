@@ -1,13 +1,14 @@
 n = int(input('Сколько фильмов хотите добавить? '))
 films = ['Крепкий орешек', 'Назад в будущее', 'Таксист', 'Леон',
          'Богемская рапсодия', 'Город грехов', 'Мементо', 'Отступники', 'Деревня']
-favorite = []
+favorite = []  # TODO изменить нейминг
 for _ in range(n):
-    name_film = input('Введите название фильма: ')
-    if name_film in films:
-        favorite.append(name_film)
+    film_name = input('Введите название фильма: ')
+    if film_name in films:
+        favorite.append(film_name)
     else:
-        print('Ошибка: фильма', name_film, 'у нас нет :(')
-print('Ваш список любимых фильмов: ', end='')
-print(*favorite, sep=', ')
+        print('Ошибка: фильма', film_name, 'у нас нет :(')
+print('Ваш список любимых фильмов: ', end='')  # TODO Зачем end?
+print(*favorite, sep=', ')  # TODO рассказать как работает, + sep это?
 
+# TODO добавить слова в словарь, чтобы пропали подчеркивания
