@@ -27,3 +27,40 @@
 # Последовательность: [1, 2, 3, 4, 5]
 # Нужно приписать чисел: 4
 # Сами числа: [4, 3, 2, 1]
+
+n = int(input("Количество чисел: "))
+sequence = []
+
+for i in range(n):
+    number = int(input("Число: "))
+    sequence.append(number)
+
+# Находим точку симметрии
+middle = len(sequence) // 2  # Округление вниз - важно!
+symmetric_part = sequence[:middle]
+
+# Проверяем, является ли последовательность симметричной
+is_symmetric = True
+for i in range(middle):
+    if sequence[i] != sequence[-(i + 1)]:
+        is_symmetric = False
+        break
+
+# Строим симметричную часть
+if is_symmetric:
+    print("Последовательность уже симметрична")
+else:
+    # Добавляем недостающие элементы
+    numbers_to_add = []
+    for i in range(middle - 1, -1, -1):
+        numbers_to_add.append(symmetric_part[i])
+
+    # Если количество элементов нечетное, удаляем первый элемент
+    if len(sequence) % 2 != 0:
+        numbers_to_add.pop(0)
+
+    sequence.extend(numbers_to_add)
+
+    print("Последовательность:", sequence)
+    print("Нужно приписать чисел:", len(numbers_to_add))
+    print("Сами числа:", numbers_to_add)
