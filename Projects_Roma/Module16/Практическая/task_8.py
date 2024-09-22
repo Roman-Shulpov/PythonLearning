@@ -64,3 +64,5 @@ else:
     print("Последовательность:", sequence)
     print("Нужно приписать чисел:", len(numbers_to_add))
     print("Сами числа:", numbers_to_add)
+
+# Писал не сам, объяснить!
