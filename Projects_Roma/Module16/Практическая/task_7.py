@@ -31,3 +31,5 @@ while len(list_people) > 0:
     print('Текущий круг людей: ', list_people)
 
 print('Остался человек под номером', list_people)
+
+
