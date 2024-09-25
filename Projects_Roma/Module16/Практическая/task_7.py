@@ -22,19 +22,17 @@
 # Выбывает человек под номером 3
 # Остался человек под номером 4
 
-people = int(input('Кол-во человек: '))
-number = int(input('Какое число в считалке? '))
-print(f'Значит выбывает каждый {number}-й человек')
-list_people = list(range(1, people + 1))
+n = int(input("Количество человек: "))
+step = int(input("Какое число в считалке?: "))
+player_list = list(range(1, n + 1))
 start = 0
-while len(list_people) > 0:
-    print('Текущий круг людей: ', list_people)
+while len(player_list) > 1:
+    print(f'Текущий круг людей: {player_list}')
+    print(f'Начало счёта с номера {start}')
+    shift = step % len(player_list)
+    index = start + shift - 1
+    print(f'Выбывает человек под номером {index}')
+    player_list.pop(index)
+    start = index % len(player_list)
 
-print('Остался человек под номером', list_people)
-
-# TODO не работает, нужно тестировать свой код
-#
-# ТЕСТ 1
-#
-# Количество человек: 5
-# Какое число в считалке? 7
+print(f'Остался человек под номером {player_list[0]}')
