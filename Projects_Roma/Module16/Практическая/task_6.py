@@ -15,56 +15,33 @@
 # Размер ноги человека 3: 42
 # Наибольшее количество людей, которые могут взять ролики: 2
 
-
+n = int(input("Количество роликов: "))
 foot_sizes = []
 roller_sizes = []
-number_of_rollers = int(input("Сколько пар роликов будет: "))
-rollers_count = 1
-for rollers in range(number_of_rollers):
-    roller_size = int(input(f"Введите размер {rollers_count} роликов: "))
-    rollers_count += 1
-    roller_sizes.append(roller_size)
-number_of_people = int(input("Сколько человек будет: "))
-people_count = 1
-for people in range(number_of_people):
-    foot_size = int(input(f"Введите размер ноги {people_count} человека: "))
-    foot_sizes.append(foot_size)
-    people_count += 1
+print("Размер пары роликов:")
+for i in range(n):
+    foot_sizes.append(int(input(f"Размер пары {i + 1}: ")))
+k = int(input("Количество людей: "))
+foot_sizes_activity = [False for _ in range(k)]
+print("Размер ноги человека:")
+for j in range(k):
+    roller_sizes.append(int(input(f"Размер ноги человека {j + 1}: ")))
+count = 0
 
-print(f"Размеры роликов: {roller_sizes}")
-print(f"Размеры ног людей: {foot_sizes}")
-people_skating = 0
-if roller_sizes == foot_sizes:
-    people_skating += 1
+for i in range(n):  # цикл перебора всех роликов на складе.
+    print(f"---------------------------")
+    for j in range(k):
+        print(f"i = {i} ({foot_sizes[i]}), j = {j} ({roller_sizes[j]})")
 
-print(f"Наибольшее количество людей, которые могут взять ролики: {people_skating}")
+        if foot_sizes[i] == roller_sizes[j] and foot_sizes_activity[i] is False:
+            foot_sizes_activity[i] = True
+            count += 1
+            print("\t\tНашли похожие!")
+            print(foot_sizes_activity)
+            print(foot_sizes)
+print(foot_sizes)
+print(roller_sizes)
+print(f"{count} человек сможет покататься.")
 
-# TODO не работает, нужно проверять то, что пишешь
-#
-# ТЕСТ 1
-#
-# Сколько пар роликов будет: 4
-# Введите размер 1 роликов: 41
-# Введите размер 2 роликов: 40
-# Введите размер 3 роликов: 39
-# Введите размер 4 роликов: 42
-# Сколько человек будет: 3
-# Введите размер ноги 1 человека: 42
-# Введите размер ноги 2 человека: 41
-# Введите размер ноги 3 человека: 42
-# Размеры роликов: [41, 40, 39, 42]
-# Размеры ног людей: [42, 41, 42]
-# Наибольшее количество людей, которые могут взять ролики: 0
-#
-# ТЕСТ 2
-#
-# Сколько пар роликов будет: 2
-# Введите размер 1 роликов: 41
-# Введите размер 2 роликов: 41
-# Сколько человек будет: 3
-# Введите размер ноги 1 человека: 41
-# Введите размер ноги 2 человека: 41
-# Введите размер ноги 3 человека: 42
-# Размеры роликов: [41, 41]
-# Размеры ног людей: [41, 41, 42]
-# Наибольшее количество людей, которые могут взять ролики: 0
+
+# зачёт
