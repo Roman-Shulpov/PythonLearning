@@ -28,41 +28,32 @@
 # Нужно приписать чисел: 4
 # Сами числа: [4, 3, 2, 1]
 
-n = int(input("Количество чисел: "))
-sequence = []
 
-for i in range(n):
-    number = int(input("Число: "))
-    sequence.append(number)
+def is_palindrome(digit_list):
+    half_len = len(digit_list) // 2
+    # print(digit_list)
+    for i in range(half_len):
+        # print(f'Слева: {i + 1}, справа: {len(digit_list) - i}')
+        # print(f"Слева: {digit_list[i]} справа {digit_list[len(digit_list) - i - 1]}")
+        if digit_list[i] != digit_list[len(digit_list) - i - 1]:
+            return False
+    return True
 
-# Находим точку симметрии
-middle = len(sequence) // 2  # Округление вниз - важно!
-symmetric_part = sequence[:middle]
 
-# Проверяем, является ли последовательность симметричной
-is_symmetric = True
-for i in range(middle):
-    if sequence[i] != sequence[-(i + 1)]:
-        is_symmetric = False
+digit_list2 = [1, 2, 3, 4, 5, 6]
+
+
+b = []
+while len(digit_list2) > 0:
+    print(digit_list2)
+    if not is_palindrome(digit_list2):
+        b.append(digit_list2.pop(0))
+    else:
         break
+print(digit_list2)
 
-# Строим симметричную часть
-if is_symmetric:
-    print("Последовательность уже симметрична")
-else:
-    # Добавляем недостающие элементы
-    numbers_to_add = []
-    for i in range(middle - 1, -1, -1):
-        numbers_to_add.append(symmetric_part[i])
-
-    # Если количество элементов нечетное, удаляем первый элемент
-    if len(sequence) % 2 != 0:
-        numbers_to_add.pop(0)
-
-    sequence.extend(numbers_to_add)
-
-    print("Последовательность:", sequence)
-    print("Нужно приписать чисел:", len(numbers_to_add))
-    print("Сами числа:", numbers_to_add)
-
-# Писал не сам, объяснить!
+result_list = b.copy()
+result_list.extend(digit_list2)
+b.reverse()
+result_list.extend(b)
+print(result_list)
