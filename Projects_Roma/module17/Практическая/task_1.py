@@ -19,3 +19,5 @@ letters = 'аеёиоуыэюя'
 glas = [i for i in text if i in letters]
 print('список гласных букв:', glas)
 print('Количество:', len(glas))
+
+# Зачет!

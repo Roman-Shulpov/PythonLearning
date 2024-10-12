@@ -23,15 +23,20 @@
 #                   7.11, 8.29, 9.52]
 
 
-team1_scores = [7.86, 6.76, 9.97, 9.08, 5.45, 6.90, 8.65, 5.17, 8.17, 5.06,
-                7.56, 7.10, 7.18, 8.25, 5.53, 7.95, 8.91, 7.11, 8.29, 9.52]
+import random
 
-team2_scores = [7.13, 5.70, 8.89, 5.36, 5.62, 9.46, 5.82, 8.67, 8.41, 7.00,
-                5.31, 7.80, 9.93, 7.76, 7.40, 8.26, 7.94, 5.71, 7.89, 7.77]
 
-print("Первая команда:", team1_scores)
-print("Вторая команда:", team2_scores)
+def main():
+    a = [round(random.uniform(5, 10), 2) for i in range(20)]
+    b = [round(random.uniform(5, 10), 2) for i in range(20)]
+    final_result = []
+    for i in range(20):
+        final_result.append((max(a[i], b[i])))
 
-winners = [max(team1_scores[i], team2_scores[i]) for i in range(len(team1_scores))]
+    print(f"Первая команда:  {a}")
+    print(f"Вторая команда:  {b}")
+    print(f"Победители тура: {final_result}")
 
-print("Победители тура:", winners)
+
+main()
+    
