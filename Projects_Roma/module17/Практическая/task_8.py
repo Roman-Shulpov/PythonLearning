@@ -13,3 +13,20 @@
 # Зашифрованное сообщение: ахс тлхср.
 
 
+alphabet = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у",
+            "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"]
+
+encrypted_message = []
+
+message = input("Введите сообщение: ")
+shift = int(input("Введите сдвиг: "))
+
+for char in message:
+    if char in alphabet:
+        index = alphabet.index(char)
+        new_index = (index + shift)
+
+
+print(encrypted_message)
+
+
