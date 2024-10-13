@@ -35,4 +35,3 @@ for char in message:
 print(encrypted_message)
 print(index)
 print(new_index)
-
