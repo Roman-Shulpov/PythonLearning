@@ -4,13 +4,17 @@
 # словаря:
 #
 # data = {
+
 # "address": "0x544444444444",
+
 # "ETH": {
 # "balance": 444,
 # "totalIn": 444,
 # "totalOut": 4
 # },
+
 # "count_txs": 2,
+
 # "tokens": [
 # {
 # "fst_token_info": {
@@ -29,8 +33,9 @@
 # "totalIn": 0,
 # "total_out": 0
 # },
-# {
+
 # "sec_token_info": {
+
 # "address": "0x44444",
 # "name": "ggg",
 # "decimals": "2",
@@ -41,13 +46,17 @@
 # "issuances_count": 0,
 # "holders_count": 20707,
 # "price": False
+
 # },
+
 # "balance": 500,
 # "totalIn": 0,
 # "total_out": 0
+
 # }
 # ]
 # }
+
 # Теперь необходимо обработать эти данные.
 #
 # Напишите программу, которая выполняет следующий алгоритм действий:
@@ -76,4 +85,7 @@
 # print(data[‘ключ’][0], type(data[‘ключ’][0]))
 #
 
+# print(data)
+# print(data[‘ключ’], type(data[‘ключ’]))
+# print(data[‘ключ’][0], type(data[‘ключ’][0]))
 
