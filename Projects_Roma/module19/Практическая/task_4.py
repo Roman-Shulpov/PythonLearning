@@ -52,3 +52,35 @@
 #
 # 3 : ['о']
 
+def calculate_frequency(text):
+    frequency = {}
+    for char in text:
+        if char in frequency:
+            frequency[char] += 1
+        else:
+            frequency[char] = 1
+    return frequency
+
+
+def invert_frequency(frequency):
+    inverted_frequency = {}
+    for char, freq in frequency.items():
+        if freq in inverted_frequency:
+            inverted_frequency[freq].append(char)
+        else:
+            inverted_frequency[freq] = [char]
+    return inverted_frequency
+
+
+text = input("Введите текст: ")
+original_frequency = calculate_frequency(text)
+
+print("\nОригинальный словарь частот:")
+for char, freq in original_frequency.items():
+    print(f"{char}: {freq}")
+
+inverted_frequency = invert_frequency(original_frequency)
+
+print("\nИнвертированный словарь частот:")
+for freq, chars in sorted(inverted_frequency.items()):
+    print(f"{freq}: {chars}")
