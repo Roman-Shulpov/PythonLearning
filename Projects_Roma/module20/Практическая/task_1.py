@@ -10,42 +10,48 @@
 # Ваня — очень придирчивый программист, и после просмотра кода он понял, что этого кандидата на работу не возьмёт,
 # хотя код выдаёт верный результат. Вот код кандидата:
 #
-# students = {
-#     1: {
-#         'name': 'Bob',
-#         'surname': 'Vazovski',
-#         'age': 23,
-#         'interests': ['biology, swimming']
-#     },
-#     2: {
-#         'name': 'Rob',
-#         'surname': 'Stepanov',
-#         'age': 24,
-#         'interests': ['math', 'computer games', 'running']
-#     },
-#     3: {
-#         'name': 'Alexander',
-#         'surname': 'Krug',
-#         'age': 22,
-#         'interests': ['languages', 'health food']
-#     }
-# }
-#
-# def f(dict):
-#     lst = []
-#     string = ''
-#     for i in dict:
-#         lst += (dict[i]['interests'])
-#         string += dict[i]['surname']
-#     cnt = 0
-#     for s in string:
-#         cnt += 1
-#     return lst, cnt
-#
-# pairs = []
-# for i in students:
-#     pairs += (i, students[i]['age'])
-#
+students = {
+    1: {
+        'name': 'Bob',
+        'surname': 'Vazovski',
+        'age': 23,
+        'interests': ['biology, swimming']
+    },
+    2: {
+        'name': 'Rob',
+        'surname': 'Stepanov',
+        'age': 24,
+        'interests': ['math', 'computer games', 'running']
+    },
+    3: {
+        'name': 'Alexander',
+        'surname': 'Krug',
+        'age': 22,
+        'interests': ['languages', 'health food']
+    }
+}
+pairs = []
+for i in students:
+    pairs += (i, students[i]['age'])
+    result = [(pairs[i], pairs[i + 1]) for i in range(0, len(pairs), 2)]
+
+interests_list = []
+for key, value in students.items():
+    add_interests = value['interests']
+    interests_list += add_interests
+
+surname = ''
+for key, value in students.items():
+    add_surname = value['surname']
+    surname += add_surname
+    total_lenght_of_surnames = len(surname)
+
+
+
+print(f"Список пар «ID студента — возраст»: {result}")
+print(f'Полный список интересов всех студентов: {interests_list}')
+print(f"Общая длина всех фамилий студентов: {total_lenght_of_surnames}")
+# 
 # my_lst = f(students)[0] l = f(students)[1] print(my_lst, l) Перепишите этот код так, чтобы он был максимально
 # pythonic и Ваня мало к чему мог придраться (только если очень захочется). Убедитесь, что программа верно работает.
 # Проверки на существование записей в словаре не обязательны, но приветствуются.
