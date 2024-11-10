@@ -50,3 +50,14 @@
 #     'Клиент': {'название_пиццы': количество},
 #     'Клиент_2': {'название_пиццы': количество}
 # }
+orders = {}
+number_of_orders = int(input("Сколько заказов будет: "))
+for order_number in range(number_of_orders):
+    order = input(f"{order_number + 1} заказ: ")
+    order_split = order.split()
+    key = order_split[1]
+    value = order_split[2]
+    orders[key] = value
+print("Заказы: ")
+for key, value in orders.items():
+    print(f"{key}: {value}")

@@ -11,11 +11,11 @@
 #
 # Введите количество пар слов: 3
 #
-# Первая пара: Привет — Здравствуйте
+# 1 пара: Привет — Здравствуйте
 #
-# Вторая пара: Печально — Грустно
+# 2 пара: Печально — Грустно
 #
-# Третья пара: Весело — Радостно
+# 3 пара: Весело — Радостно
 #
 # Введите слово: интересно
 #
@@ -24,3 +24,20 @@
 # Введите слово: здравствуйте
 #
 # Синоним: Привет
+slovar = {}
+pair_count = int(input("Введите количество пар слов: "))
+for pair_number in range(pair_count):
+    pair_str = input(f"{pair_number + 1} пара (например: Привет - Здравствуйте): ")
+    pair_str_split = pair_str.split()
+    key = pair_str_split[0]
+    value = pair_str_split[2]
+    slovar[key] = value
+    print(slovar)
+
+synonym = input("Введите слово: ")
+print(synonym)
+if synonym in slovar:
+    print(slovar[synonym])
+else:
+    print("Такого слова нет в словаре")
+

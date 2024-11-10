@@ -62,6 +62,7 @@ def calculate_frequency(text):
     return frequency
 
 
+
 def invert_frequency(frequency):
     inverted_frequency = {}
     for char, freq in frequency.items():

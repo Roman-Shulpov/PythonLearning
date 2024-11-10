@@ -85,10 +85,6 @@
 # print(data[‘ключ’][0], type(data[‘ключ’][0]))
 #
 
-# print(data)
-# print(data[‘ключ’], type(data[‘ключ’]))
-# print(data[‘ключ’][0], type(data[‘ключ’][0]))
-
 data = {
     "address": "0x544444444444",
     "ETH": {
