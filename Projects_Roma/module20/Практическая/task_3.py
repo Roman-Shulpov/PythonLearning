@@ -10,9 +10,9 @@ players = {
     ("Bob", "Robbin"): (7, 5, 14),
     ("Rob", "Bobbin"): (12, 8, 2)
 }
-for key, value in players:
-    pass
 
+tuple_list = [(first_name, last_name) + scores for (first_name, last_name), scores in players.items()]
+print(tuple_list)
 # Один программист попросил нас прислать другой вариант хранения этой информации для его базы.
 #
 # Напишите программу, которая объединяет ключ словаря со значением в один кортеж, и выведите результат на экран.

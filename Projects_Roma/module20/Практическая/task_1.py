@@ -46,8 +46,6 @@ for key, value in students.items():
     surname += add_surname
     total_lenght_of_surnames = len(surname)
 
-
-
 print(f"Список пар «ID студента — возраст»: {result}")
 print(f'Полный список интересов всех студентов: {interests_list}')
 print(f"Общая длина всех фамилий студентов: {total_lenght_of_surnames}")
