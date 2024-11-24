@@ -1,3 +1,3 @@
 # learning python
-My name is Roman Shulpov, this is my repository on GitLab.
+My name is Roman Shulpov, this is my repository on GitLab
 
