@@ -1,3 +1,3 @@
 # learning python
-My name is Roman Shulpov, this is my repository on GitHub  
+My name is Roma Shulpov, this is my repository on GitHub  
 
