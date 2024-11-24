@@ -25,3 +25,14 @@
 # 9
 #
 # 10
+
+def dividing(num):
+    if num == 1:
+        return 1
+    output_number = dividing(num - 1)
+    print(output_number)
+    return num
+
+
+num_dividing = dividing(10)
+print(num_dividing)

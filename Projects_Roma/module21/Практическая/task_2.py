@@ -4,18 +4,46 @@
 # Напишите функцию, которая находит заданный пользователем ключ в словаре и выдаёт значение этого ключа на экран. По
 # умолчанию уровень не задан. В качестве примера можно использовать такой словарь:
 #
-# site = {
-#     'html': {
-#         'head': {
-#             'title': 'Мой сайт'
-#         },
-#         'body': {
-#             'h2': 'Здесь будет мой заголовок',
-#             'div': 'Тут, наверное, какой-то блок',
-#             'p': 'А вот здесь новый абзац'
-#         }
-#     }
-# }
+site = \
+    {
+        'html': {
+            'head': {
+                'title': 'Мой сайт'
+            },
+            'body': {
+                'h2': 'Здесь будет мой заголовок',
+                'div': 'Тут, наверное, какой-то блок',
+                'p': 'А вот здесь новый абзац'
+            }
+        },
+    }
+
+request_1 = input("Введите искомый ключ: ").lower()
+depth_request = input("Хотите ввести максимальную глубину? Y/N: ").lower()
+if depth_request == 'n':
+    for key, value in site.items():
+        print(value[request_1])
+elif depth_request == 'y':
+    depth_value = int(input("Введите максимальную глубину: "))
+
+
+    def recursive_print(d, level=depth_value):
+        if isinstance(d, dict):
+            print(d)
+            for key, value in d.items():
+                recursive_print(value, level + 1)
+        else:
+            return
+    recursive_print()
+    
+    
+
+
+# ВЫВОД ВСЕГО:
+
+
+# ВЫВОД ВСЕГО:
+
 # Пример 1
 #
 # Введите искомый ключ: head
