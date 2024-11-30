@@ -60,3 +60,29 @@
 # на Samsung', 'div': 'Купить', 'p': ‘Продать' } } } Обратите внимание, что на первой итерации выводится только один
 # сайт (для iPhone), а на второй итерации — оба сайта (и для iPhone и для Samsung). Чтобы это реализовать,
 # нужно сохранять сайты в списке и каждый раз печатать все его элементы.
+sites = []
+num_sites = int(input("Сколько сайтов: "))
+
+for _ in range(num_sites):
+    product_name = input("Введите название продукта для нового сайта: ")
+
+    new_site = {
+        'html': {
+            'head': {
+                'title': f'Куплю/продам {product_name} недорого'
+            },
+            'body': {
+                'h2': f'У нас самая низкая цена на {product_name}',
+                'div': 'Купить',
+                'p': 'Продать'
+            }
+        }
+    }
+
+    sites.append((product_name, new_site))
+
+    for product, site in sites:
+        print(f"Сайт для {product}:")
+        print(site)
+        print()
+

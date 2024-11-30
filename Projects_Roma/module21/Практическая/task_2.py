@@ -18,23 +18,25 @@ site = \
         },
     }
 
+def recursive_print(request_1, level):
+    if isinstance(request_1, dict):
+        print(request_1)
+        for key, value in request_1.items():
+            recursive_print(value, level + 1)
+    else:
+        recursive_print(request_1, level)
+
 request_1 = input("Введите искомый ключ: ").lower()
 depth_request = input("Хотите ввести максимальную глубину? Y/N: ").lower()
 if depth_request == 'n':
     for key, value in site.items():
         print(value[request_1])
 elif depth_request == 'y':
-    depth_value = int(input("Введите максимальную глубину: "))
+    level = int(input("Введите максимальную глубину: "))
+    recursive_print(request_1, level)
 
 
-    def recursive_print(d, level=depth_value):
-        if isinstance(d, dict):
-            print(d)
-            for key, value in d.items():
-                recursive_print(value, level + 1)
-        else:
-            return
-    recursive_print()
+
     
     
 
