@@ -17,3 +17,18 @@
 # sum(1, 2, 3, 4, 5)
 #
 # Ответ в консоли: 15
+
+
+def simple_sum(*args):
+    total = 0
+
+    for arg in args:
+        if isinstance(arg, list):
+            total += simple_sum(*arg)
+        else:
+            total += arg
+
+    return total
+
+print("Ответ в консоли: ", simple_sum(1, 2, 3, 4, 5))
+print("Ответ в консоли: ", simple_sum([1, [2, [3]], 4]))

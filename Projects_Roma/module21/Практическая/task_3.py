@@ -85,4 +85,3 @@ for _ in range(num_sites):
         print(f"Сайт для {product}:")
         print(site)
         print()
-

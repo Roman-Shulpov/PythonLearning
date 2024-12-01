@@ -16,3 +16,18 @@
 # Подсказка
 #
 # Можно возвращать списки и срезы списков.
+
+
+def expansion(processed_list):
+    result = []
+    for item in processed_list:
+        if isinstance(item, list):
+            result += expansion(item)
+        else:
+            result.append(item)
+    return result
+
+
+nice_list = [1, [2, [3, 4]], 5, [6, 7, [8, 9]], 10, [11, 12], [13, [14, 15], 16], 17, [18]]
+expansion_list = expansion(nice_list)
+print(expansion_list)
