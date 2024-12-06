@@ -41,3 +41,23 @@
 # Формат вывода соответствует примеру.
 # Основной функционал описан в отдельной функции или функциях.
 # Переменные и функции имеют значимые имена, не только a, b, c, d.
+
+def my_zip(*iterables):
+    min_len = min(len(iterable) for iterable in iterables)
+    for i in range(min_len):
+        yield tuple(iterable[i] for iterable in iterables)
+
+
+def main():
+    input_string = input("Введите строку: ")
+    input_tuple = eval(input("Введите кортеж чисел: "))
+    zipped_generator = my_zip(input_string, input_tuple)
+
+    print(zipped_generator)
+
+    for pair in zipped_generator:
+        print(pair)
+
+
+if __name__ == "__main__":
+    main()

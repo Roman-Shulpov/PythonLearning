@@ -5,10 +5,17 @@
 # Основной код оставьте пустым или закомментированным (используйте его только для тестирования).
 #
 # Пример вызова функции:
-#
-# tpl = (6, 3, -1, 8, 4, 10, -5)
-#
-# print(tpl_sort(tpl))
+
+def tpl_sort(tpl):
+    if all(isinstance(i, int) for i in tpl):
+        return tuple(sorted(tpl))
+    else:
+        return tpl
+
+
+tpl = (6, 3, -1, 8, 4, 10, -5)
+
+print(tpl_sort(tpl))
 #
 # Ответ в консоли: (-5, -1, 3, 4, 6, 8, 10)
 #

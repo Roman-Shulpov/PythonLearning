@@ -71,3 +71,49 @@
 # Формат вывода соответствует примеру.
 # Основной функционал (действия) описан в отдельных функциях.
 # Переменные и функции имеют значимые имена, не только a, b, c, d.
+
+
+def add_contact(contacts):
+    name, surname = input("Введите имя и фамилию нового контакта (через пробел): ").split()
+    phone_number = input("Введите номер телефона: ")
+
+    contact_key = (name, surname)
+
+    if contact_key in contacts:
+        print("Такой человек уже есть в контактах.")
+    else:
+        contacts[contact_key] = phone_number
+        print("Контакт успешно добавлен.")
+
+    print("Текущий словарь контактов:", contacts)
+
+
+def find_contact(contacts):
+    surname = input("Введите фамилию для поиска: ").lower()
+    found = False
+
+    for (name, contact_surname), phone_number in contacts.items():
+        if contact_surname.lower() == surname:
+            print(f"{name} {contact_surname} {phone_number}")
+            found = True
+
+    if not found:
+        print("Контакты с такой фамилией не найдены.")
+
+
+def main():
+    contacts = {}
+
+    while True:
+        action = input("Введите номер действия:\n1. Добавить контакт\n2. Найти человека\n")
+
+        if action == '1':
+            add_contact(contacts)
+        elif action == '2':
+            find_contact(contacts)
+        else:
+            print("Неверный ввод, пожалуйста, введите 1 или 2.")
+
+
+if __name__ == "__main__":
+    main()
