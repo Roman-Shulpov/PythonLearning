@@ -1,3 +1,5 @@
+import os
+
 # Задача
 # 2.
 # Дзен
@@ -192,3 +194,13 @@
 # never is often
 # better
 # than * right * now.
+
+
+file = open('zen.txt', 'r', encoding='utf-8')
+lines = file.readlines()
+file.close()
+
+lines.reverse()
+
+for line in lines:
+    print(line.strip())
