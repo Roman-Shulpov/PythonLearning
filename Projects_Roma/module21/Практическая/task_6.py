@@ -83,5 +83,43 @@
 # числа = [4, 9, 2, 7, 5]
 #
 # вспомогательная_функция(числа) → [4, 2], [5], [9, 7]
- #
+#
 # Эту функцию можно будет использовать в основной-рекурсивной, чтобы код основной функции стал проще и понятнее.
+
+
+def partition(arr):
+    if not arr:  # Если массив пустой, возвращаем три пустых списка
+        return [], [], []
+
+    pivot = arr[-1]  # Опорный элемент - последний элемент списка
+    less = []  # Список для элементов меньше опорного
+    equal = []  # Список для элементов равных опорному
+    greater = []  # Список для элементов больше опорного
+
+    for element in arr:
+        if element < pivot:
+            less.append(element)
+        elif element == pivot:
+            equal.append(element)
+        else:
+            greater.append(element)
+
+    return less, equal, greater
+
+
+def quick_sort(arr):
+    if len(arr) <= 1:  # Базовый случай: массив длиной 0 или 1 уже отсортирован
+        return arr
+
+    # Разделим массив на три части
+    less, equal, greater = partition(arr)
+
+    # Рекурсивно сортируем части меньше и больше опорного, объединяем результаты
+    return quick_sort(less) + equal + quick_sort(greater)
+
+
+# Пример использования функции
+numbers = [4, 9, 2, 7, 5]
+sorted_numbers = quick_sort(numbers)
+
+print("Отсортированный массив:", sorted_numbers)

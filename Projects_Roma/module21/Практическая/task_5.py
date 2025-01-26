@@ -21,6 +21,7 @@
 def expansion(processed_list):
     result = []
     for item in processed_list:
+        f
         if isinstance(item, list):
             result += expansion(item)
         else:

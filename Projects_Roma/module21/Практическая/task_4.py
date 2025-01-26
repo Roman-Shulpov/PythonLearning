@@ -30,5 +30,6 @@ def simple_sum(*args):
 
     return total
 
+
 print("Ответ в консоли: ", simple_sum(1, 2, 3, 4, 5))
 print("Ответ в консоли: ", simple_sum([1, [2, [3]], 4]))

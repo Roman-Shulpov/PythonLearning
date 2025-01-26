@@ -1,7 +1,7 @@
 import random
 import time
 
-number_list = [random.randint(0, 1000000) for _ in range(10000)]
+number_list = [random.randint(0, 1000000) for _ in range(5000)]
 
 print("Исходный список:")
 print(number_list)
