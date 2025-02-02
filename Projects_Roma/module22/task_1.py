@@ -21,9 +21,10 @@
 # Входные и выходные файлы названы так, как указано в задании.
 
 def read_numbers_from_file(filename):
-    with open(filename, 'r') as file:
+    with open('numbers.txt', 'r') as file:
         content = file.read()
-    numbers = map(int, content.split())
+        print()
+    numbers = content.split()
     return numbers
 
 
