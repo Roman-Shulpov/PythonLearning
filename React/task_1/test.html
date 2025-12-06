@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Вызов JS по кнопке</title>
+
+
+<script>
+function showMessage() {
+    // Получаем элемент, чтобы изменить его текст
+    const messageElement = document.getElementById('message');
+    messageElement.textContent = 'Функция успешно вызвана!';
+}
+</script>
+
+
+</head>
+
+
+<body>
+<h1>Пример вызова JS-функции</h1>
+<button onclick="showMessage()">Выполнить функцию</button>
+<p id="message">Здесь появится сообщение</p>
+</body>
+
+
+</html>
