@@ -6,4 +6,10 @@ button.addEventListener('click', function(){
         newDiv.className = 'block1'
         container.appendChild(newDiv);
     });
-
+const spots = document2.getElementById('myButton2');
+spots.addEventListener('click', function(){
+    fetch('http://test.spotic.ru/api/spot/list/for-map', {
+        method: 'POST', headers: {
+        }
+    })
+    });
